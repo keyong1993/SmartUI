@@ -1,0 +1,9 @@
+﻿<Application x:Class="SmartUI.Demo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SmartUI.Demo"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/Default.xaml" />
+    </Application.Resources>
+</Application>

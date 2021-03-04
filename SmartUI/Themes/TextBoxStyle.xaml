@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:smart="clr-namespace:SmartUI.Controls">
+    <Style x:Key="DrTextBoxDefaultStyle" TargetType="{x:Type smart:DrTextBox}">
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter  Property="Icon" Value="{x:Null}"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <DockPanel LastChildFill="True">
+                            <TextBlock Margin="5 2" FontSize="12"  Text="{Binding [0].ErrorContent}" Foreground="Red" DockPanel.Dock="Bottom" VerticalAlignment="Center"/>
+                            <AdornedElementPlaceholder Name="PlaceHolder"/>
+                        </DockPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="smart:DrTextBox">
+                    <Border x:Name="border" BorderBrush="{StaticResource PrimaryBorderGaryColor}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Padding="3 0">
+                        <DockPanel LastChildFill="True">
+                            <smart:PackIcon x:Name="icon" VerticalAlignment="Center" Kind="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Icon,UpdateSourceTrigger=PropertyChanged}" Width="24" Height="24" Foreground="{StaticResource PrimaryBorderGaryColor}" DockPanel.Dock="Left"/>
+                            <Grid VerticalAlignment="Center">
+                                <TextBox x:Name="text" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Text,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Height="{TemplateBinding Height}" BorderThickness="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Foreground="Black"
+                                        FontSize="{TemplateBinding FontSize}"/>
+                                <TextBlock Margin="5 0" x:Name="water" Text="{TemplateBinding Water}" Visibility="Collapsed" IsHitTestVisible="False" Foreground="{StaticResource PrimaryBorderGaryColor}" VerticalAlignment="Center"/>
+                            </Grid>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="icon" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" SourceName="text" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryColor}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="1.5"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryColor}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="1.5"/>
+                        </Trigger>
+                        <Trigger Property="IsEmpty" Value="True">
+                            <Setter TargetName="water" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsEmpty" Value="False">
+                            <Setter TargetName="water" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="true">
+                            <Setter Property="ToolTip" Value="{Binding RelativeSource=
+                            {x:Static RelativeSource.Self}, 
+                            Path=(Validation.Errors)[0].ErrorContent}"/>
+                            <Setter Property="BorderBrush" Value="Red"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="smart:DrTextBox" BasedOn="{StaticResource DrTextBoxDefaultStyle}"/>
+</ResourceDictionary>

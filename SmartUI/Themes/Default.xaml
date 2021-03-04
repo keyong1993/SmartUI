@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/Color.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/DialogWindowStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/ButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/TextBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/DataGridStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/ScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/CalendarStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/DateTimePickerStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/PackIconStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/LableStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/TabControlStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
