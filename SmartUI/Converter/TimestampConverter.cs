@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using SmartUI.Common;
 
-namespace DiningReservation.UI.Converter
+namespace SmartUI.UI.Converter
 {
     public class TimestampConverter : IValueConverter
     {

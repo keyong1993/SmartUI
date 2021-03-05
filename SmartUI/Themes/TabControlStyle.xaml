@@ -24,10 +24,10 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <TabPanel x:Name="HeaderPanel"
-                    Grid.Row="0" Panel.ZIndex="1"
-                    Margin="0,0,4,-2" IsItemsHost="True" KeyboardNavigation.TabIndex="1" Background="Transparent" />
-                        <Border x:Name="Border" Grid.Row="1" BorderThickness="0 2 0 0" BorderBrush="{TemplateBinding BorderBrush}" KeyboardNavigation.TabNavigation="Local" KeyboardNavigation.DirectionalNavigation="Contained"  KeyboardNavigation.TabIndex="2">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" Panel.ZIndex="1" Width="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=ActualWidth}" Grid.Row="0" BorderThickness="0 0 0 2">
+                            <TabPanel x:Name="HeaderPanel" Margin="0,0,4,-2" IsItemsHost="True" KeyboardNavigation.TabIndex="1" Background="Transparent" />
+                        </Border>                      
+                        <Border x:Name="Border" Grid.Row="1" BorderThickness="0 0 0 0" BorderBrush="{TemplateBinding BorderBrush}" KeyboardNavigation.TabNavigation="Local" KeyboardNavigation.DirectionalNavigation="Contained"  KeyboardNavigation.TabIndex="2">
                             <ContentPresenter x:Name="PART_SelectedContentHost" Margin="4" ContentSource="SelectedContent" />
                         </Border>
                     </Grid>
@@ -37,7 +37,7 @@
     </Style>
     <Style TargetType="TabItem">
         <Setter Property="MinWidth" Value="100"/>
-        <Setter Property="Height" Value="50"/>
+        <Setter Property="Height" Value="40"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Cursor" Value="Hand"/>

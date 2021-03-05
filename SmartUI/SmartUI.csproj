@@ -63,6 +63,7 @@
     <Compile Include="Controls\NoticeControl.cs" />
     <Compile Include="Controls\PackIcon.cs" />
     <Compile Include="Controls\PackIconDataFactory.cs" />
+    <Compile Include="Controls\SmartWindow.cs" />
     <Compile Include="Controls\WaterComboBox.cs" />
     <Compile Include="Converter\DialogButtonConverter.cs" />
     <Compile Include="Converter\PassWordConverter.cs" />
@@ -78,6 +79,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\CalendarStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WindowStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -134,10 +139,6 @@
     <Content Include="Images\u196.png" />
     <Content Include="Images\u301.png" />
     <Content Include="Images\u304.png" />
-    <Content Include="nuget.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Data;
 using SmartUI.Common.Enum;
 
-namespace DiningReservation.UI.Converter
+namespace SmartUI.UI.Converter
 {
     public class DialogButtonConverter : IValueConverter
     {

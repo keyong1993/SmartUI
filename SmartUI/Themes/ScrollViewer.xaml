@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:DiningReservation.UI.Themes">
+                    xmlns:local="clr-namespace:SmartUI.UI.Themes">
     <Style TargetType="{x:Type RepeatButton}" BasedOn="{x:Null}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="#FF333333" />
@@ -149,9 +149,9 @@
                 <ControlTemplate TargetType="{x:Type ScrollBar}">
                     <Grid x:Name="GridRoot" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Background="Transparent">
                         <Grid.RowDefinitions>
-                            <RowDefinition MaxHeight="18" />
+                            <RowDefinition MaxHeight="0" />
                             <RowDefinition Height="0.00001*" />
-                            <RowDefinition MaxHeight="18" />
+                            <RowDefinition MaxHeight="0" />
                         </Grid.RowDefinitions>
                         <RepeatButton x:Name="DecreaseRepeat" Command="ScrollBar.LineUpCommand" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
                             <Grid Margin="0,0,0,0">

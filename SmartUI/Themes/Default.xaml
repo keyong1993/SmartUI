@@ -13,5 +13,6 @@
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/PackIconStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/LableStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/TabControlStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/WindowStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
