@@ -56,24 +56,70 @@
         </TabItem>
         <TabItem Header="PackIcon">
             <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True">
-                
-            
-            <ItemsControl ItemsSource="{Binding Icons}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <HierarchicalDataTemplate>
-                        <StackPanel Orientation="Vertical" Width="50" Height="70" Margin="5" ToolTip="{Binding}">
-                            <smart:PackIcon Kind="{Binding}" VerticalAlignment="Center"  Foreground="Gray" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding}" HorizontalAlignment="Center" TextTrimming="WordEllipsis" Foreground="Gray"/>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <DockPanel LastChildFill="True">
+                    <Button Height='40' Content="加载更多" DockPanel.Dock="Bottom" Style="{StaticResource PrimaryButtonStyle1}" Command="{Binding LoadMoreIconCommand}"/>
+                    <ItemsControl ItemsSource="{Binding Icons}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <HierarchicalDataTemplate>
+                                <StackPanel Orientation="Vertical" Width="50" Height="70" Margin="5" ToolTip="{Binding}">
+                                    <smart:PackIcon Kind="{Binding}" VerticalAlignment="Center"  Foreground="Gray" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding}" HorizontalAlignment="Center" TextTrimming="WordEllipsis" Foreground="Gray"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>                    
+                </DockPanel>               
             </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Form">
+            <StackPanel Orientation="Vertical">
+                <StackPanel.Resources>
+                    <Style TargetType="WrapPanel">
+                        <Setter Property="Height" Value="40"/>
+                        <Setter Property="Margin" Value="8"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="Label" BasedOn="{StaticResource DefaultLableStyle}">
+                        <Setter Property="MinWidth" Value="100"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </StackPanel.Resources>
+                <WrapPanel Orientation="Horizontal">
+                    <Label Content="Radio"/>
+                    <RadioButton Content="选项一" GroupName="a" IsChecked="True" />
+                    <RadioButton Content="选项二" GroupName="a" />
+                    <RadioButton Content="禁用选中" IsChecked="True" IsEnabled="False" GroupName="b"/>
+                    <RadioButton Content="禁用" IsEnabled="False" GroupName="b"/>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label Content="Radio组"/>
+                    <RadioButton Content="选项一" GroupName="radioGroup" IsChecked="True" Style="{StaticResource RadioButtonGroupStyle}"/>
+                    <RadioButton Content="选项二" GroupName="radioGroup" Style="{StaticResource RadioButtonGroupStyle}"/>
+                    <RadioButton Content="选项三" GroupName="radioGroup" Style="{StaticResource RadioButtonGroupStyle}"/>
+                    <RadioButton Content="禁用" IsEnabled="False" GroupName="radioGroup"  Style="{StaticResource RadioButtonGroupStyle}"/>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label Content="CheckBox"/>
+                    <CheckBox Content="选项一"  IsChecked="True"/>
+                    <CheckBox Content="选项二" />
+                    <CheckBox Content="选项三" />
+                    <CheckBox Content="禁用" IsEnabled="False"/>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label Content="CheckBox"/>
+                    <smart:CheckBoxGroup CanAllChecked="True" CornerRadius="5">
+                        <CheckBox Content="选项一"  IsChecked="True"/>
+                        <CheckBox Content="选项二" />
+                        <CheckBox Content="选项三" />
+                        <CheckBox Content="禁用" IsEnabled="False"/>
+                    </smart:CheckBoxGroup>
+                </WrapPanel>
+            </StackPanel>
         </TabItem>
     </TabControl>
 </smart:SmartWindow>

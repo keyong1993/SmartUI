@@ -55,9 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assist\ButtonAssist.cs" />
+    <Compile Include="Assist\RadioButtonAssist.cs" />
     <Compile Include="Assist\DataGridAssist.cs" />
     <Compile Include="Controls\ChildWindow.cs" />
     <Compile Include="Controls\ComboBoxControl.cs" />
+    <Compile Include="Controls\CheckBoxGroup.cs" />
     <Compile Include="Controls\DateTimePicker.cs" />
     <Compile Include="Controls\DrTextBox.cs" />
     <Compile Include="Controls\NoticeControl.cs" />
@@ -79,6 +81,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\CalendarStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CheckBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\RadioButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -134,11 +144,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Images\u196.png" />
-    <Content Include="Images\u301.png" />
-    <Content Include="Images\u304.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

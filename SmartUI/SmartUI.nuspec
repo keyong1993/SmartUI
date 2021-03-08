@@ -2,14 +2,13 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>1.0.0.1</version>
+    <version>1.0.0.2</version>
     <title>SmartUI</title>
     <authors>柯勇</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/qq1678167865/smartUI</projectUrl>
-    <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
-    <description>WPF UI组件库</description>
+    <projectUrl>https://github.com/keyong1993/smartUI</projectUrl>
+    <description>SmartUI是是用于构建Wpf程序的一套基础UI框架，内置了丰富的控件样式以及自定义组件，整体风格类似于前端的Element</description>
     <releaseNotes>SmartUI是是用于构建Wpf程序的一套基础UI框架，内置了丰富的控件样式以及自定义组件，整体风格类似于前端的Element</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags></tags>

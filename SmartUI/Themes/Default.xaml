@@ -14,5 +14,7 @@
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/LableStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/TabControlStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/WindowStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/RadioButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/CheckBoxStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
