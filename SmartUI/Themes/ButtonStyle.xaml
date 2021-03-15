@@ -11,7 +11,6 @@
         <Setter Property="Margin" Value="5"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Background" Value="{DynamicResource BgWhiteColor}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBaseColor}"/>
         <Setter Property="assist:ButtonAssist.Icon" Value="None"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -64,7 +63,7 @@
                         <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="4"/>
                         <DockPanel x:Name="contont" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
                             <smart:PackIcon x:Name="icon" Kind="{TemplateBinding assist:ButtonAssist.Icon}" Width="18" Height="18" DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <Label IsHitTestVisible="True" Cursor="{TemplateBinding Cursor}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
+                            <Label IsHitTestVisible="True" Cursor="{TemplateBinding Cursor}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center" Style="{x:Null}" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Grid>
 
@@ -381,15 +380,16 @@
         <Setter Property="Background" Value="{DynamicResource ErrorColor}"/>
     </Style>
     <Style x:Key="TextButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
-        <Setter Property="Foreground" Value="{DynamicResource BrandColor}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrandColor}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Label x:Name="lable" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="{TemplateBinding VerticalAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                    <ContentControl Content="{TemplateBinding Content}" />
+                    <!--<Label x:Name="lable" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="{TemplateBinding VerticalAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>-->
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource TextEnabledColor}"/>
@@ -399,7 +399,48 @@
                                 <Condition Property="IsMouseOver" Value="True"/>
                                 <Condition Property="IsEnabled" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Opacity" Value="0.7" TargetName="lable"/>
+                            <Setter Property="Opacity" Value="0.7"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="RadioButton" x:Key="TopMenuStyle">
+        <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Padding" Value="20 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border BorderThickness="0 0 0 3" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 5"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource BrandColor}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource BrandColor}"/>
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource BrandColor}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BrandColor}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource BrandColor}"/>
+                            <Setter Property="Background" Value="WhiteSmoke"/>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

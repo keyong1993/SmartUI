@@ -57,4 +57,52 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="SystemCloseButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border x:Name="border" Background="Transparent" Cursor="Hand">
+                        <control:PackIcon x:Name="icon" Kind="Close" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource TextEnabledColor}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="Red"/>
+                            <Setter TargetName="icon" Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DialogButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="MinWidth" Value="60"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="5 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="4" BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" BorderBrush="{DynamicResource PrimaryBorderGaryColor}" Background="{TemplateBinding Background}">
+                        <Label Content="{TemplateBinding Content}" VerticalAlignment="Center" VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center" Foreground="{TemplateBinding Foreground}" Cursor="Hand"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.8"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

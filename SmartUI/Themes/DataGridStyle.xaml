@@ -74,7 +74,7 @@
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </Border>
-                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <ItemsPresenter Width="{TemplateBinding Width}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -159,7 +159,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridCell">
-                    <Border x:Name="Bg" Width="{Binding RelativeSource={RelativeSource Mode=Self},Path=Column.Width}" Background="Transparent" UseLayoutRounding="True">
+                    <Border x:Name="Bg" Width="Auto" Background="Transparent" UseLayoutRounding="True">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>

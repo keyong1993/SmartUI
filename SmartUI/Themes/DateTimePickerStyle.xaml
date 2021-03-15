@@ -408,7 +408,7 @@
                                     <SolidColorBrush x:Key="DisabledBrush" Color="#A5FFFFFF"/>
                                     <ControlTemplate x:Key="DropDownButtonTemplate" TargetType="{x:Type Button}">
                                         <Grid>
-                                            <Grid Width="20" Height="20" Background="White">
+                                            <Grid Width="20" Height="20" Background="Transparent">
                                                 <Path Stretch="UniformToFill" Height="10" Width="14" Margin="0,0,0,2" VerticalAlignment="Bottom" Fill="#FFBABABA" Data="{DynamicResource pathDate1}"/>
                                                 <Path Stretch="UniformToFill" Fill="#FFBABABA" Data="{DynamicResource pathDate2}"/>
                                                 <Path Stretch="UniformToFill" Width="6" Height="10" Margin="3,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#FFBABABA" Data="{DynamicResource pathDate3}"/>
@@ -418,7 +418,7 @@
                                 </Grid.Resources>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="70"/>
                                 </Grid.ColumnDefinitions>
                                 <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Left" Margin="3,0,3,0" Grid.Row="0" Template="{StaticResource DropDownButtonTemplate}" VerticalAlignment="Center" Width="20"/>
                                 <smart:DrTextBox x:Name="PART_TextBox" Style="{DynamicResource DateTimePickerTextBoxStyle}" Width="{TemplateBinding Width}" Grid.Column="0" Water="{Binding WaterText,RelativeSource={RelativeSource AncestorType=smart:DateTimePicker}}" Text="{Binding SelectedDateTime,StringFormat='yyyy-MM-dd',RelativeSource={RelativeSource AncestorType={x:Type smart:DateTimePicker}}}" BorderThickness="0" Grid.Row="0" VerticalContentAlignment="Center"/>
@@ -458,7 +458,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="smart:DrTextBox">
-                    <TextBlock x:Name="text" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Text="{TemplateBinding Text}" Foreground="{StaticResource PrimaryForegroundColor}"
+                    <TextBlock x:Name="text" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Text="{TemplateBinding Text}" Foreground="{DynamicResource PrimaryTextColor}"
                                VerticalAlignment="Center" FontSize="16" Padding="5 0"/>
                     <ControlTemplate.Triggers>
                         <Trigger  Property="Text" Value="">

@@ -25,7 +25,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="icon" Property="Kind" Value="CheckBox"/>
-                            <Setter Property="BorderBrush" Value="{DynamicResource BrandColor}"/>
+                            <Setter Property="BorderBrush" Value="{ DynamicResource BrandColor}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}"/>

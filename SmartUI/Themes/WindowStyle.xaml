@@ -26,10 +26,14 @@
                                     <Button x:Name="maximize" assist:ButtonAssist.Icon="WindowMaximize" Command="SystemCommands.MaximizeWindowCommand" Style="{DynamicResource WindowButtonStyle}"/>
                                     <Button assist:ButtonAssist.Icon="WindowClose" Command="SystemCommands.CloseWindowCommand" Style="{DynamicResource WindowButtonStyle}"/>
                                 </StackPanel>
-                                <DockPanel LastChildFill="True">
-                                    <Image x:Name="icon" DockPanel.Dock="Left" Source="{TemplateBinding Icon}" Width="24" Height="24" VerticalAlignment="Center"/>
-                                    <TextBlock x:Name="title" Text="{TemplateBinding Title}" VerticalAlignment="Center" Padding="5" FontSize="13" FontWeight="ExtraBlack"/>
-                                </DockPanel>
+                                <Grid>
+                                    <Border x:Name="titleControl" Background="Transparent" Visibility="Visible"/>
+                                    <DockPanel x:Name="titleDock" LastChildFill="True" Visibility="Collapsed">
+                                        <Image x:Name="icon" DockPanel.Dock="Left" Source="{TemplateBinding Icon}" Width="22" Height="22" VerticalAlignment="Center" Margin="5 0 0 0"/>
+                                        <Label x:Name="title" Content="{TemplateBinding Title}" VerticalAlignment="Center" Padding="5 0" FontSize="14" FontWeight="ExtraBlack"/>
+                                    </DockPanel>
+                                </Grid>
+                                
                             </DockPanel>
                             <Rectangle Height="6" Grid.Row="1">
                                 <Rectangle.Fill>
@@ -41,7 +45,11 @@
                                     </LinearGradientBrush>
                                 </Rectangle.Fill>
                             </Rectangle>
-                            <ContentPresenter Grid.Row="2"/>
+                            <Grid Grid.Row="2">
+                                <AdornerDecorator>
+                                    <ContentPresenter></ContentPresenter>
+                                </AdornerDecorator>
+                            </Grid>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -58,12 +66,16 @@
                             <Setter TargetName="maximize" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="restore" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
+                        <Trigger Property="TitleControl" Value="{x:Null}">
+                            <Setter TargetName="titleControl" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="titleDock" Property="Visibility" Value="Visible"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
+    <Style TargetType="smart:SmartWindow" BasedOn="{StaticResource DefaultWindowStyle}"/>
     <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Width" Value="50"/>
         <Setter Property="Height" Value="35"/>

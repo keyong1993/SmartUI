@@ -16,5 +16,6 @@
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/WindowStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/RadioButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/CheckBoxStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/TextBlockStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

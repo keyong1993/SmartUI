@@ -11,7 +11,8 @@ namespace SmartUI.Controls
 {
     public class SmartWindow : Window
     {
-        private TextBlock _title;
+        private Label _title;
+        private Border _titleControl;
 
         public SmartWindow()
         {
@@ -21,17 +22,36 @@ namespace SmartUI.Controls
             CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand, (a, b) => { WindowState = WindowState.Normal; }));
         }
 
+        public FrameworkElement TitleControl
+        {
+            get { return (FrameworkElement)GetValue(TitleControlProperty); }
+            set { SetValue(TitleControlProperty, value); }
+        }
+
+        public static readonly DependencyProperty TitleControlProperty =
+            DependencyProperty.Register(nameof(TitleControl), typeof(FrameworkElement), typeof(SmartWindow), new PropertyMetadata(null));
+
+
         public override void OnApplyTemplate()
         {
-            base.OnApplyTemplate();
-            _title = GetTemplateChild("title") as TextBlock;
-            if (_title != null)
+            base.OnApplyTemplate();            
+            if (TitleControl != null)
             {
-                _title.MouseLeftButtonDown += _title_MouseLeftButtonDown;
+                _titleControl = (Border)GetTemplateChild("titleControl");
+                _titleControl.Child = TitleControl;
+                _titleControl.MouseLeftButtonDown += TitleMouseLeftButtonDown;
+            }
+            else
+            {
+                _title = GetTemplateChild("title") as Label;
+                if (_title != null)
+                {
+                    _title.MouseLeftButtonDown += TitleMouseLeftButtonDown;
+                }
             }
         }
 
-        private void _title_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void TitleMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 1)
             {
