@@ -421,7 +421,7 @@
                                     <ColumnDefinition Width="70"/>
                                 </Grid.ColumnDefinitions>
                                 <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Left" Margin="3,0,3,0" Grid.Row="0" Template="{StaticResource DropDownButtonTemplate}" VerticalAlignment="Center" Width="20"/>
-                                <smart:DrTextBox x:Name="PART_TextBox" Style="{DynamicResource DateTimePickerTextBoxStyle}" Width="{TemplateBinding Width}" Grid.Column="0" Water="{Binding WaterText,RelativeSource={RelativeSource AncestorType=smart:DateTimePicker}}" Text="{Binding SelectedDateTime,StringFormat='yyyy-MM-dd',RelativeSource={RelativeSource AncestorType={x:Type smart:DateTimePicker}}}" BorderThickness="0" Grid.Row="0" VerticalContentAlignment="Center"/>
+                                <smart:TextBoxControl x:Name="PART_TextBox" Style="{DynamicResource DateTimePickerTextBoxStyle}" Width="{TemplateBinding Width}" Grid.Column="0" Water="{Binding WaterText,RelativeSource={RelativeSource AncestorType=smart:DateTimePicker}}" Text="{Binding SelectedDateTime,StringFormat='yyyy-MM-dd',RelativeSource={RelativeSource AncestorType={x:Type smart:DateTimePicker}}}" BorderThickness="0" Grid.Row="0" VerticalContentAlignment="Center"/>
                                 <Grid x:Name="PART_DisabledVisual" Grid.ColumnSpan="2" Grid.Column="0" IsHitTestVisible="False" Opacity="0" Grid.Row="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -454,10 +454,10 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="DateTimePickerTextBoxStyle" TargetType="smart:DrTextBox">
+    <Style x:Key="DateTimePickerTextBoxStyle" TargetType="smart:TextBoxControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="smart:DrTextBox">
+                <ControlTemplate TargetType="smart:TextBoxControl">
                     <TextBlock x:Name="text" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Text="{TemplateBinding Text}" Foreground="{DynamicResource PrimaryTextColor}"
                                VerticalAlignment="Center" FontSize="16" Padding="5 0"/>
                     <ControlTemplate.Triggers>

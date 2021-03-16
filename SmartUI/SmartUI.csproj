@@ -75,13 +75,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assist\ButtonAssist.cs" />
-    <Compile Include="Assist\RadioButtonAssist.cs" />
     <Compile Include="Assist\DataGridAssist.cs" />
     <Compile Include="Controls\ChildWindow.cs" />
     <Compile Include="Controls\ComboBoxControl.cs" />
-    <Compile Include="Controls\CheckBoxGroup.cs" />
     <Compile Include="Controls\DateTimePicker.cs" />
-    <Compile Include="Controls\DrTextBox.cs" />
+    <Compile Include="Controls\Switch.cs" />
+    <Compile Include="Controls\TextBoxControl.cs" />
     <Compile Include="Controls\NoticeControl.cs" />
     <Compile Include="Controls\PackIcon.cs" />
     <Compile Include="Controls\PackIconDataFactory.cs" />
@@ -108,6 +107,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\CheckBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SwitchStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

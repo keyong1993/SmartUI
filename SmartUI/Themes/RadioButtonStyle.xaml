@@ -77,7 +77,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="10,5"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderLightColor}"/>
-        <Setter Property="assist:RadioButtonAssist.IsDynamicCornerRadius" Value="True"/>
+        <Setter Property="assist:ButtonAssist.IsDynamicCornerRadius" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">

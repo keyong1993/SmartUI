@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace SmartUI.Controls
 {
-    public class DrTextBox : TextBox
+    public class TextBoxControl : TextBox
     {
         public string Water
         {
@@ -17,7 +17,7 @@ namespace SmartUI.Controls
         }
 
         public static readonly DependencyProperty WaterProperty =
-            DependencyProperty.Register(nameof(Water), typeof(string), typeof(DrTextBox), new PropertyMetadata(string.Empty));
+            DependencyProperty.Register(nameof(Water), typeof(string), typeof(TextBoxControl), new PropertyMetadata(string.Empty));
 
 
 
@@ -28,7 +28,7 @@ namespace SmartUI.Controls
         }
 
         public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register(nameof(Icon), typeof(string), typeof(DrTextBox), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(Icon), typeof(string), typeof(TextBoxControl), new PropertyMetadata(null));
 
 
 
@@ -39,7 +39,7 @@ namespace SmartUI.Controls
         }
 
         public static readonly DependencyProperty IsEmptyProperty =
-            DependencyProperty.Register(nameof(IsEmpty), typeof(bool), typeof(DrTextBox), new PropertyMetadata(true));
+            DependencyProperty.Register(nameof(IsEmpty), typeof(bool), typeof(TextBoxControl), new PropertyMetadata(true));
 
         protected override void OnTextChanged(TextChangedEventArgs e)
         {

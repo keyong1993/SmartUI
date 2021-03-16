@@ -26,7 +26,7 @@
                 <Button Content="信息按钮" Style="{StaticResource InfoButtonStyle2}"/>
                 <Button Content="警告按钮" Style="{StaticResource WarningButtonStyle2}"/>
                 <Button Content="危险按钮" Style="{StaticResource ErrorButtonStyle2}"/>
-                
+
                 <Label Content="默认样式3"/>
                 <Button Content="默认按钮" Style="{StaticResource FilletDefaultButtonStyle}"/>
                 <Button Content="主要按钮" Style="{StaticResource FilletPrimaryButtonStyle}"/>
@@ -72,8 +72,8 @@
                                 </StackPanel>
                             </HierarchicalDataTemplate>
                         </ItemsControl.ItemTemplate>
-                    </ItemsControl>                    
-                </DockPanel>               
+                    </ItemsControl>
+                </DockPanel>
             </ScrollViewer>
         </TabItem>
         <TabItem Header="Form">
@@ -112,12 +112,29 @@
                 </WrapPanel>
                 <WrapPanel Orientation="Horizontal">
                     <Label Content="CheckBox"/>
-                    <smart:CheckBoxGroup CanAllChecked="True" CornerRadius="5">
-                        <CheckBox Content="选项一"  IsChecked="True"/>
-                        <CheckBox Content="选项二" />
-                        <CheckBox Content="选项三" />
-                        <CheckBox Content="禁用" IsEnabled="False"/>
-                    </smart:CheckBoxGroup>
+                    <CheckBox Content="选项一" Style="{StaticResource CheckBoxGroupStyle}"  IsChecked="True"/>
+                    <CheckBox Content="选项二" Style="{StaticResource CheckBoxGroupStyle}"/>
+                    <CheckBox Content="选项三" Style="{StaticResource CheckBoxGroupStyle}"/>
+                    <CheckBox Content="禁用"  Style="{StaticResource CheckBoxGroupStyle}" IsEnabled="False"/>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal" Height="50">
+                    <Label Content="Input"/>
+                    <smart:TextBoxControl Water="请输入" Width="200"/>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal" Height="50">
+                    <Label Content="Select选择器"/>
+                    <smart:ComboBoxControl Height="35" Width="200">
+                        <ComboBoxItem>选项一</ComboBoxItem>
+                        <ComboBoxItem>选项二</ComboBoxItem>
+                        <ComboBoxItem>选项三</ComboBoxItem>
+                        <ComboBoxItem>选项四</ComboBoxItem>
+                        <ComboBoxItem>选项五</ComboBoxItem>
+                    </smart:ComboBoxControl>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal" Height="50">
+                    <Label Content="Switch 开关"/>
+                    <smart:Switch CheckedText="开启" UnCheckText="关闭"/>
+                    <smart:Switch CheckedText="开启" UnCheckText="关闭" IsEnabled="False"/>
                 </WrapPanel>
             </StackPanel>
         </TabItem>
