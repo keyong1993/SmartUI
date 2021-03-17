@@ -28,7 +28,7 @@
                     <Grid>
                         <Border x:Name="border" Background="White" Margin="0 0 5 0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4">
                           <DockPanel LastChildFill="True" VerticalAlignment="Center" Cursor="Hand">
-                                <smart:PackIcon x:Name="icon" DockPanel.Dock="Right" Width="24" Height="24" Kind="KeyboardArrowDown" Foreground="{TemplateBinding BorderBrush}"/>
+                                <smart:PackIcon x:Name="icon" DockPanel.Dock="Right" Width="16" Height="16" Kind="KeyboardArrowDown" Foreground="{TemplateBinding BorderBrush}" Margin="5"/>
                                 <TextBlock Text="{TemplateBinding Text}" Margin="5 0" VerticalAlignment="Center"/>
                           </DockPanel>
                         </Border>
@@ -37,7 +37,7 @@
                                 <Border.Effect>
                                     <DropShadowEffect Color="LightGray" Opacity="0.3"/>
                                 </Border.Effect>
-                                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible" CanContentScroll="True">
+                                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
                                     <ItemsPresenter SnapsToDevicePixels="True"/>
                                 </ScrollViewer>                                
                             </Border>
@@ -73,7 +73,7 @@
     <Style TargetType="ComboBoxItem">
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="30"/>
-        <Setter Property="Padding" Value="10 3"/>
+        <Setter Property="Padding" Value="3"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -83,7 +83,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FAFAFA"/>
+                            <Setter Property="Background" Value="{DynamicResource BgHoverColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

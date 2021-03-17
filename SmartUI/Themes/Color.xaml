@@ -21,6 +21,6 @@
     <SolidColorBrush x:Key="BgBlackColor" Color="#000000"/>
     <SolidColorBrush x:Key="BgWhiteColor" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="BgTransparentColor" Color="Transparent"/>
-
+    <SolidColorBrush x:Key="BgHoverColor" Color="#FAFAFA"/>
     <SolidColorBrush x:Key="TextEnabledColor" Color="#C0C4CC"/>
 </ResourceDictionary>

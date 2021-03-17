@@ -8,7 +8,7 @@
         xmlns:assist="clr-namespace:SmartUI.Assist;assembly=SmartUI"
         mc:Ignorable="d" Style="{StaticResource DefaultWindowStyle}"
         Title="SmartUI" Height="500" Width="1000" WindowStartupLocation="CenterScreen">
-    <TabControl IsTabStop="False" Margin="0">
+    <TabControl IsTabStop="False" Margin="0" SelectedIndex="2">
         <TabItem Header="Button">
             <UniformGrid Columns="7" Rows="6">
                 <Label Content="默认样式"/>
@@ -124,12 +124,15 @@
                 <WrapPanel Orientation="Horizontal" Height="50">
                     <Label Content="Select选择器"/>
                     <smart:ComboBoxControl Height="35" Width="200">
-                        <ComboBoxItem>选项一</ComboBoxItem>
-                        <ComboBoxItem>选项二</ComboBoxItem>
-                        <ComboBoxItem>选项三</ComboBoxItem>
-                        <ComboBoxItem>选项四</ComboBoxItem>
-                        <ComboBoxItem>选项五</ComboBoxItem>
+                        <ComboBoxItem Content="选项一"/>
+                        <ComboBoxItem Content="选项二"/>
+                        <ComboBoxItem Content="选项三"/>
+                        <ComboBoxItem Content="选项四"/>
+                        <ComboBoxItem Content="选项五"/>
                     </smart:ComboBoxControl>
+                    <smart:Cascader ItemsSource="{Binding CascaderItemSource}">
+                        
+                    </smart:Cascader>
                 </WrapPanel>
                 <WrapPanel Orientation="Horizontal" Height="50">
                     <Label Content="Switch 开关"/>

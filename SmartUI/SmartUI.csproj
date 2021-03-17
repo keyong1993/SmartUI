@@ -76,6 +76,8 @@
   <ItemGroup>
     <Compile Include="Assist\ButtonAssist.cs" />
     <Compile Include="Assist\DataGridAssist.cs" />
+    <Compile Include="Controls\CascaderItem.cs" />
+    <Compile Include="Controls\Cascader.cs" />
     <Compile Include="Controls\ChildWindow.cs" />
     <Compile Include="Controls\ComboBoxControl.cs" />
     <Compile Include="Controls\DateTimePicker.cs" />
@@ -107,6 +109,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\CheckBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CascaderStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -182,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Base\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

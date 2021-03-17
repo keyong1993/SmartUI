@@ -43,7 +43,7 @@ namespace SmartUI.Assist
                 ButtonBase currentItem = default;
                 if (item is RadioButton itemRadio && itemRadio.GroupName.Equals(groupName))
                 {
-                    currentItem = preButton;
+                    currentItem = itemRadio;
                 }
                 else if (item is CheckBox check)
                 {
@@ -70,7 +70,7 @@ namespace SmartUI.Assist
                 if (border != null)
                 {
                     border.CornerRadius = new CornerRadius(0, 4, 4, 0);
-                    border.BorderThickness = new Thickness(0, 1, 1, 1);
+                    border.BorderThickness = new Thickness(1, 1, 1, 1);
                 }
             }
         }

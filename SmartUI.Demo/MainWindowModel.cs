@@ -1,4 +1,5 @@
-﻿using SmartUI.Common.Enum;
+﻿using SmartUI.Base;
+using SmartUI.Common.Enum;
 using SmartUI.Demo.Common;
 using System;
 using System.Collections.Generic;
@@ -42,14 +43,14 @@ namespace SmartUI.Demo
 
         public MainWindowModel()
         {
-            _iconsArray = (PackIconKind[]) Enum.GetValues(typeof(PackIconKind));
-            Icons = new ObservableCollection<PackIconKind>(_iconsArray.Take(_iconsPageIndex* _pageSize));
+            _iconsArray = (PackIconKind[])Enum.GetValues(typeof(PackIconKind));
+            Icons = new ObservableCollection<PackIconKind>(_iconsArray.Take(_iconsPageIndex * _pageSize));
             LoadMoreIconCommand = new RelayCommand(new Action<object>(LoadMoreIcon));
         }
 
         private void LoadMoreIcon(object obj)
         {
-            _iconsArray.Skip((_iconsPageIndex - 1) * _pageSize).Take(_pageSize).ToList().ForEach(p => {Icons.Add(p); });
+            _iconsArray.Skip((_iconsPageIndex - 1) * _pageSize).Take(_pageSize).ToList().ForEach(p => { Icons.Add(p); });
         }
 
 
@@ -63,5 +64,41 @@ namespace SmartUI.Demo
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public ObservableCollection<CascaderItem> CascaderItemSource { get; set; } = new ObservableCollection<CascaderItem>()
+        {
+            new CascaderItem()
+            {
+                DisplayName="选项一",Children=new ObservableCollection<CascaderItem>(){
+                    new CascaderItem(){DisplayName="子项一",Children=new ObservableCollection<CascaderItem>(){
+                        new CascaderItem(){DisplayName="子子项一"} ,
+                        new CascaderItem(){DisplayName="子子项二"} ,
+                        new CascaderItem(){DisplayName="子子项三"} ,
+                        new CascaderItem(){DisplayName="子子项四"} ,
+                        new CascaderItem(){DisplayName="子子项五"} }
+                    },
+                    new CascaderItem()
+                    {
+                        DisplayName = "子项二",Children = new ObservableCollection<CascaderItem>(){
+                                new CascaderItem(){DisplayName="子子项一"},
+                                new CascaderItem()
+                                {
+                                    DisplayName = "子项三",Children = new ObservableCollection<CascaderItem>(){
+                                     new CascaderItem(){DisplayName="子子项一"} }}
+                                }
+                    }
+                },
+            },
+            new CascaderItem()
+            {
+                DisplayName = "选项二",
+                Children = new ObservableCollection<CascaderItem>(){
+                new CascaderItem(){DisplayName="子项二",Children=new ObservableCollection<CascaderItem>(){
+                    new CascaderItem(){DisplayName="子子项二"} }
+                } }
+            }
+        };
+
     }
 }

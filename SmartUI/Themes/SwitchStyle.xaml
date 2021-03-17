@@ -18,8 +18,7 @@
                         </Border>
                         <TextBlock x:Name="untext" Text="{TemplateBinding UnCheckText}" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Background}"/>
                         <TextBlock x:Name="texted" Text="{TemplateBinding CheckedText}" FontSize="{TemplateBinding FontSize}" Visibility="Collapsed" Foreground="{DynamicResource SuccessColor}"/>
-                    </WrapPanel>
-                    
+                    </WrapPanel>                    
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="border" Property="HorizontalAlignment" Value="Right"/>
