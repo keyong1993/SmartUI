@@ -130,7 +130,7 @@
                         <ComboBoxItem Content="选项四"/>
                         <ComboBoxItem Content="选项五"/>
                     </smart:ComboBoxControl>
-                    <smart:Cascader ItemsSource="{Binding CascaderItemSource}">
+                    <smart:Cascader ItemsSource="{Binding CascaderItemSource}" Text="选项一/子项一">
                         
                     </smart:Cascader>
                 </WrapPanel>

@@ -32,16 +32,62 @@ namespace SmartUI.Controls
                 return;
             }
             cascader.RaiseItems(source);
+            if (!string.IsNullOrEmpty(cascader.Text))
+                cascader.ResetByText();
         }
 
 
 
-
-
-        protected override void OnSelectionChanged(SelectionChangedEventArgs e)
+        public new string Text
         {
-            base.OnSelectionChanged(e);
-            IsDropDownOpen = true;
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
+        public static new readonly DependencyProperty TextProperty =
+            DependencyProperty.Register(nameof(Text), typeof(string), typeof(Cascader), new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, TextChanged));
+
+        private static void TextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            Cascader control = d as Cascader;
+            if (control.IsDropDownOpen)
+                return;
+            control.ResetByText();
+        }
+
+        private void ResetByText()
+        {
+            string text = Text;
+            int index = 0;
+            if (ItemsSource?.Count > 0 && !string.IsNullOrWhiteSpace(text))
+            {
+                ObservableCollection<CascaderItem> items = ItemsSource;
+                CascaderItem selectItem = null;
+                do
+                {
+                    foreach (var item in items)
+                    {
+                        item.ParentTree = selectItem;
+                        if (text.StartsWith(item.DisplayName))
+                        {
+                            item.IsChecked = true;
+                            text = text.Substring(item.DisplayName.Length).TrimStart('/');
+                            break;
+                        }
+                    }
+                    selectItem = items.FirstOrDefault(p => p.IsChecked);
+                    if (_itemsPanle.Children.Count <= index)
+                    {
+                        RaiseItems(items);
+                    }
+                    else
+                    {
+                        (_itemsPanle.Children[index] as ListBox).ItemsSource = items;
+                    }
+                    index++;
+                    items = selectItem?.Children;
+                } while (items != null);
+            }
         }
 
         public override void OnApplyTemplate()
@@ -52,6 +98,8 @@ namespace SmartUI.Controls
                 RaiseItems(ItemsSource);
             _border = GetTemplateChild("border") as Border;
             _border.MouseLeftButtonDown += Border_MouseLeftButtonDown;
+            if (!string.IsNullOrEmpty(Text))
+                ResetByText();
         }
 
         private void RaiseItems(ObservableCollection<CascaderItem> source)
@@ -76,27 +124,29 @@ namespace SmartUI.Controls
                 model.IsChecked = true;
                 if (model.Children is null || model.Children.Count == 0)
                 {
-                    IsDropDownOpen = false;
                     if (index + 1 < _itemsPanle.Children.Count)
                         _itemsPanle.Children.RemoveRange(index + 1, _itemsPanle.Children.Count - index - 1);
                     this.Text = GetParentNames(model);
-                    this.SelectedItem = model.Data;
-                    return;
+                    this.SelectedItem = model;
+                    IsDropDownOpen = false;
                 }
-                IsDropDownOpen = true;
-                foreach (var item in model.Children)
+                else
                 {
-                    item.ParentTree = model;
-                }
-                if (_itemsPanle.Children.Count == index + 1)
-                {
-                    RaiseItems(model.Children);
-                }
-                else if (_itemsPanle.Children.Count - 1 > index)
-                {
-                    (_itemsPanle.Children[index + 1] as ListBox).ItemsSource = model.Children;
-                    if (index + 2 < _itemsPanle.Children.Count)
-                        _itemsPanle.Children.RemoveRange(index + 2, _itemsPanle.Children.Count - index - 2);
+                    IsDropDownOpen = true;
+                    foreach (var item in model.Children)
+                    {
+                        item.ParentTree = model;
+                    }
+                    if (_itemsPanle.Children.Count == index + 1)
+                    {
+                        RaiseItems(model.Children);
+                    }
+                    else if (_itemsPanle.Children.Count - 1 > index)
+                    {
+                        (_itemsPanle.Children[index + 1] as ListBox).ItemsSource = model.Children;
+                        if (index + 2 < _itemsPanle.Children.Count)
+                            _itemsPanle.Children.RemoveRange(index + 2, _itemsPanle.Children.Count - index - 2);
+                    }
                 }
                 if (_itemsPanle.Children.Count > 0)
                     (_itemsPanle.Children[_itemsPanle.Children.Count - 1] as ListBox).BorderThickness = new Thickness(0);
