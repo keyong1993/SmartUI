@@ -8,8 +8,6 @@
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/DataGridStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/ScrollViewer.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/ComboBoxStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/CalendarStyle.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/DateTimePickerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/PackIconStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/LableStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/TabControlStyle.xaml" />
@@ -19,5 +17,7 @@
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/TextBlockStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/SwitchStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/CascaderStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/CalendarStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/DatePickerStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
