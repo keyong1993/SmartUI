@@ -2,7 +2,7 @@
     SmartUI是是用于构建Wpf程序的一套基础UI框架，内置了丰富的控件样式以及自定义组件，整体风格类似于前端的Element
 ## 使用手册
   1. 项目依赖项：项目依赖于CalcBinding2.4.0.0版本，目标版本不低于.NET Framework4.7.2
-  2. 使用时只需在Visual Suodio中打开“管理Nuget程序包”，搜索并安装“SmartUI”即可使用
+  2. Install-Package Smert 或使用时只需在Visual Suodio中打开“管理Nuget程序包”，搜索并安装“SmartUI”即可使用
 ## 组件支持
   1. PackIcon 控件是一个强大的Icon图标库，内含10000+多个图标，用户可以自定义图标大小、颜色
     ![image](https://user-images.githubusercontent.com/29591512/110083256-7339d300-7dc9-11eb-9b3c-53d8e070d98a.png)
@@ -63,3 +63,12 @@
   3. SmartWindow自定义控件，全新的窗体界面
         使用方式：将Window继承自SmartWindow即可        
   5. TabControl控件样式
+  6. Form表单
+        1.Radio、
+        2.CheckBox、
+        3.Input、
+        4.Select选择器、
+        5.Switch开关
+        ![image](https://user-images.githubusercontent.com/29591512/111290646-5468f580-8681-11eb-9d58-4ddcd697f583.png)
+
+        
