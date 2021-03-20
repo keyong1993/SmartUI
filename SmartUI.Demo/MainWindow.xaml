@@ -8,6 +8,36 @@
         xmlns:assist="clr-namespace:SmartUI.Assist;assembly=SmartUI"
         mc:Ignorable="d" Style="{StaticResource DefaultWindowStyle}"
         Title="SmartUI" Height="500" Width="1000" WindowStartupLocation="CenterScreen">
+    <smart:SmartWindow.TitleControl>
+        <StackPanel Orientation="Horizontal">
+            <smart:PackIcon Kind="Layers" Width="18" Height="18" Margin="5" Foreground="{StaticResource BrandColor}"/>
+            <TextBlock Text="SmartUI" Foreground="{StaticResource BrandColor}"/>
+            <Menu Margin="5 0">
+                <MenuItem Header="基础控件" IsChecked="True">
+                    <MenuItem Header="PackIcon"/>
+                    <MenuItem Header="Button">
+                        <MenuItem Header="默认样式"/>
+                        <MenuItem Header="默认样式2"/>
+                        <MenuItem Header="默认样式3"/>
+                        <MenuItem Header="圆角样式"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Form">
+                    <MenuItem Header="Input"/>
+                    <MenuItem Header="Radio"/>
+                    <MenuItem Header="CheckBox"/>
+                    <MenuItem Header="Combox"/>
+                    <MenuItem Header="Cascader"/>
+                    <MenuItem Header="Switch"/>
+                    <MenuItem Header="DatePicker"/>
+                </MenuItem>
+                <MenuItem Header="Data"/>
+                <MenuItem Header="导航"/>
+                <MenuItem Header="消息"/>
+                <MenuItem Header="其他"/>
+            </Menu>
+        </StackPanel>
+    </smart:SmartWindow.TitleControl>
     <TabControl IsTabStop="False" Margin="0" SelectedIndex="2">
         <TabItem Header="Button">
             <UniformGrid Columns="7" Rows="6">
