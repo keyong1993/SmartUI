@@ -15,7 +15,7 @@
   3. Button样式
     ![image](https://user-images.githubusercontent.com/29591512/110083013-1ccc9480-7dc9-11eb-8c7d-336ce639d711.png)
     使用方式:如果按钮需要显示图标则需加入附加属性assist:ButtonAssist.Icon="Search"
-   ```` csharp
+   
             <UniformGrid Columns="7" Rows="6">
                 <Label Content="默认样式"/>
                 <Button Content="默认按钮"/>
@@ -59,7 +59,7 @@
                 <Button Content="默认按钮" Style="{StaticResource TextButtonStyle}"/>
                 <Button Content="禁用按钮" IsEnabled="False" Style="{StaticResource TextButtonStyle}"/>
             </UniformGrid>
-   ````
+   
   3. SmartWindow自定义控件，全新的窗体界面
         使用方式：将Window继承自SmartWindow即可        
   5. TabControl控件样式

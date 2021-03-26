@@ -171,8 +171,7 @@
                     </WrapPanel>
                     <WrapPanel Orientation="Horizontal" Height="400">
                         <Label Content="时间控件"/>
-                        <DatePicker Style="{StaticResource DatePickerDefault}"/>
-                        <Calendar Width="300" Height="400"/>
+                        <DatePicker DisplayDateStart="2021-3-18" Style="{StaticResource DatePickerDefault}"/>
                     </WrapPanel>
                 </StackPanel>
             </ScrollViewer>
