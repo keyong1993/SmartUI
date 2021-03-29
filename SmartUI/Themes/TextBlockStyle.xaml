@@ -22,4 +22,14 @@
         <Setter Property="Margin" Value="4"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
+
+    <Style x:Key="MainHeaderStyle" TargetType="TextBlock" BasedOn="{StaticResource DefaultTextBlockStyle}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Height" Value="40" />
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="5 0"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
 </ResourceDictionary>

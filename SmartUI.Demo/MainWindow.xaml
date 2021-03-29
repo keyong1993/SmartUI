@@ -5,31 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:smart="clr-namespace:SmartUI.Controls;assembly=SmartUI"
         xmlns:local="clr-namespace:SmartUI.Demo"
+        xmlns:page="clr-namespace:SmartUI.Demo.Pages"
         xmlns:assist="clr-namespace:SmartUI.Assist;assembly=SmartUI"
         mc:Ignorable="d" Style="{StaticResource DefaultWindowStyle}"
+        xmlns:converter="clr-namespace:SmartUI.Demo.Converter"
         Title="SmartUI" Height="500" Width="1000" WindowStartupLocation="CenterScreen">
+    <smart:SmartWindow.Resources>
+        <converter:StateConvert x:Key="StateConvert" />
+    </smart:SmartWindow.Resources>
     <smart:SmartWindow.TitleControl>
         <StackPanel Orientation="Horizontal">
             <smart:PackIcon Kind="Layers" Width="18" Height="18" Margin="5" Foreground="{StaticResource BrandColor}"/>
             <TextBlock Text="SmartUI" Foreground="{StaticResource BrandColor}"/>
             <Menu Margin="5 0">
                 <MenuItem Header="基础控件" IsChecked="True">
-                    <MenuItem Header="PackIcon"/>
+                    <MenuItem Header="PackIcon" Command="{Binding StateCommand}" CommandParameter="PackIcon" />
                     <MenuItem Header="Button">
-                        <MenuItem Header="默认样式"/>
-                        <MenuItem Header="默认样式2"/>
-                        <MenuItem Header="默认样式3"/>
-                        <MenuItem Header="圆角样式"/>
+                        <MenuItem x:Name="ButtonStyle1" Header="默认样式" Command="{Binding StateCommand}" CommandParameter="Button"/>
+                        <MenuItem x:Name="ButtonStyle2" Header="默认样式2" Command="{Binding StateCommand}" CommandParameter="Button"/>
+                        <MenuItem x:Name="ButtonStyle3" Header="默认样式3" Command="{Binding StateCommand}" CommandParameter="Button"/>
+                        <MenuItem x:Name="ButtonStyle4" Header="圆角样式" Command="{Binding StateCommand}" CommandParameter="Button"/>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Form">
-                    <MenuItem Header="Input"/>
-                    <MenuItem Header="Radio"/>
-                    <MenuItem Header="CheckBox"/>
-                    <MenuItem Header="Combox"/>
-                    <MenuItem Header="Cascader"/>
-                    <MenuItem Header="Switch"/>
-                    <MenuItem Header="DatePicker"/>
+                    <MenuItem Header="Input" Command="{Binding StateCommand}" CommandParameter="Form"/>
+                    <MenuItem Header="Radio" Command="{Binding StateCommand}" CommandParameter="Form"/>
+                    <MenuItem Header="CheckBox" Command="{Binding StateCommand}" CommandParameter="Form"/>
+                    <MenuItem Header="Combox" Command="{Binding StateCommand}" CommandParameter="Form"/>
+                    <MenuItem Header="Cascader" Command="{Binding StateCommand}" CommandParameter="Form"/>
+                    <MenuItem Header="Switch" Command="{Binding StateCommand}" CommandParameter="Form"/>
+                    <MenuItem Header="DatePicker" Command="{Binding StateCommand}" CommandParameter="Form"/>
                 </MenuItem>
                 <MenuItem Header="Data"/>
                 <MenuItem Header="导航"/>
@@ -38,143 +43,9 @@
             </Menu>
         </StackPanel>
     </smart:SmartWindow.TitleControl>
-    <TabControl IsTabStop="False" Margin="0" SelectedIndex="2">
-        <TabItem Header="Button">
-            <UniformGrid Columns="7" Rows="6">
-                <Label Content="默认样式"/>
-                <Button Content="默认按钮"/>
-                <Button Content="主要按钮" Style="{StaticResource PrimaryButtonStyle1}"/>
-                <Button Content="成功按钮" assist:ButtonAssist.Icon="Done" Style="{StaticResource SuccessButtonStyle1}"/>
-                <Button Content="信息按钮" Style="{StaticResource InfoButtonStyle1}"/>
-                <Button Content="警告按钮" Style="{StaticResource WarningButtonStyle1}"/>
-                <Button Content="危险按钮" Style="{StaticResource ErrorButtonStyle1}"/>
-
-                <Label Content="默认样式2"/>
-                <Button Content="默认按钮" Style="{StaticResource DefaultButtonStyle2}"/>
-                <Button Content="主要按钮" Style="{StaticResource PrimaryButtonStyle2}"/>
-                <Button Content="成功按钮" Style="{StaticResource SuccessButtonStyle2}"/>
-                <Button Content="信息按钮" Style="{StaticResource InfoButtonStyle2}"/>
-                <Button Content="警告按钮" Style="{StaticResource WarningButtonStyle2}"/>
-                <Button Content="危险按钮" Style="{StaticResource ErrorButtonStyle2}"/>
-
-                <Label Content="默认样式3"/>
-                <Button Content="默认按钮" Style="{StaticResource FilletDefaultButtonStyle}"/>
-                <Button Content="主要按钮" Style="{StaticResource FilletPrimaryButtonStyle}"/>
-                <Button Content="成功按钮" Style="{StaticResource FilletSuccessButtonStyle}"/>
-                <Button Content="信息按钮" Style="{StaticResource FilletInfoButtonStyle}"/>
-                <Button Content="警告按钮" Style="{StaticResource FilletWarningButtonStyle}"/>
-                <Button Content="危险按钮" Style="{StaticResource FilletErrorButtonStyle}"/>
-                <Label Content="圆形按钮样式"/>
-                <Button assist:ButtonAssist.Icon="Search" Style="{StaticResource CircleDefaultButtonStyle}"/>
-                <Button assist:ButtonAssist.Icon="Edit" Style="{StaticResource CirclePrimaryButtonStyle}"/>
-                <Button assist:ButtonAssist.Icon="Done" Style="{StaticResource CircleSuccessButtonStyle}"/>
-                <Button assist:ButtonAssist.Icon="Email" Style="{StaticResource CircleInfoButtonStyle}"/>
-                <Button assist:ButtonAssist.Icon="Star" Style="{StaticResource CircleWarningButtonStyle}"/>
-                <Button assist:ButtonAssist.Icon="Delete" Style="{StaticResource CircleErrorButtonStyle}"/>
-                <Label Content="禁用样式"/>
-                <Button Content="默认按钮" IsEnabled="False"/>
-                <Button Content="主要按钮" IsEnabled="False" Style="{StaticResource PrimaryButtonStyle1}"/>
-                <Button Content="成功按钮" IsEnabled="False" Style="{StaticResource SuccessButtonStyle1}"/>
-                <Button Content="信息按钮" IsEnabled="False" Style="{StaticResource InfoButtonStyle1}"/>
-                <Button Content="警告按钮" IsEnabled="False" Style="{StaticResource WarningButtonStyle1}"/>
-                <Button Content="危险按钮" IsEnabled="False" Style="{StaticResource ErrorButtonStyle1}"/>
-
-                <Label Content="文字按钮样式"/>
-                <Button Content="默认按钮" Style="{StaticResource TextButtonStyle}"/>
-                <Button Content="禁用按钮" IsEnabled="False" Style="{StaticResource TextButtonStyle}"/>
-            </UniformGrid>
-        </TabItem>
-        <TabItem Header="PackIcon">
-            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True">
-                <DockPanel LastChildFill="True">
-                    <Button Height='40' Content="加载更多" DockPanel.Dock="Bottom" Style="{StaticResource PrimaryButtonStyle1}" Command="{Binding LoadMoreIconCommand}"/>
-                    <ItemsControl ItemsSource="{Binding Icons}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <HierarchicalDataTemplate>
-                                <StackPanel Orientation="Vertical" Width="50" Height="70" Margin="5" ToolTip="{Binding}">
-                                    <smart:PackIcon Kind="{Binding}" VerticalAlignment="Center"  Foreground="Gray" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="{Binding}" HorizontalAlignment="Center" TextTrimming="WordEllipsis" Foreground="Gray"/>
-                                </StackPanel>
-                            </HierarchicalDataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </DockPanel>
-            </ScrollViewer>
-        </TabItem>
-        <TabItem Header="Form">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-
-                <StackPanel Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                    <StackPanel.Resources>
-                        <Style TargetType="WrapPanel">
-                            <Setter Property="Height" Value="40"/>
-                            <Setter Property="Margin" Value="8"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                        </Style>
-                        <Style TargetType="Label" BasedOn="{StaticResource DefaultLableStyle}">
-                            <Setter Property="MinWidth" Value="100"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                        </Style>
-                    </StackPanel.Resources>
-                    <WrapPanel Orientation="Horizontal">
-                        <Label Content="Radio"/>
-                        <RadioButton Content="选项一" GroupName="a" IsChecked="True" />
-                        <RadioButton Content="选项二" GroupName="a" />
-                        <RadioButton Content="禁用选中" IsChecked="True" IsEnabled="False" GroupName="b"/>
-                        <RadioButton Content="禁用" IsEnabled="False" GroupName="b"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal">
-                        <Label Content="Radio组"/>
-                        <RadioButton Content="选项一" GroupName="radioGroup" IsChecked="True" Style="{StaticResource RadioButtonGroupStyle}"/>
-                        <RadioButton Content="选项二" GroupName="radioGroup" Style="{StaticResource RadioButtonGroupStyle}"/>
-                        <RadioButton Content="选项三" GroupName="radioGroup" Style="{StaticResource RadioButtonGroupStyle}"/>
-                        <RadioButton Content="禁用" IsEnabled="False" GroupName="radioGroup"  Style="{StaticResource RadioButtonGroupStyle}"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal">
-                        <Label Content="CheckBox"/>
-                        <CheckBox Content="选项一"  IsChecked="True"/>
-                        <CheckBox Content="选项二" />
-                        <CheckBox Content="选项三" />
-                        <CheckBox Content="禁用" IsEnabled="False"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal">
-                        <Label Content="CheckBox"/>
-                        <CheckBox Content="选项一" Style="{StaticResource CheckBoxGroupStyle}"  IsChecked="True"/>
-                        <CheckBox Content="选项二" Style="{StaticResource CheckBoxGroupStyle}"/>
-                        <CheckBox Content="选项三" Style="{StaticResource CheckBoxGroupStyle}"/>
-                        <CheckBox Content="禁用"  Style="{StaticResource CheckBoxGroupStyle}" IsEnabled="False"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal" Height="50">
-                        <Label Content="Input"/>
-                        <smart:TextBoxControl Water="请输入" Width="200"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal" Height="50">
-                        <Label Content="Select选择器"/>
-                        <smart:ComboBoxControl Height="35" Width="200">
-                            <ComboBoxItem Content="选项一"/>
-                            <ComboBoxItem Content="选项二"/>
-                            <ComboBoxItem Content="选项三"/>
-                            <ComboBoxItem Content="选项四"/>
-                            <ComboBoxItem Content="选项五"/>
-                        </smart:ComboBoxControl>
-                        <smart:Cascader ItemsSource="{Binding CascaderItemSource}" Text="选项一/子项一"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal" Height="50">
-                        <Label Content="Switch 开关"/>
-                        <smart:Switch CheckedText="开启" UnCheckText="关闭"/>
-                        <smart:Switch CheckedText="开启" UnCheckText="关闭" IsEnabled="False"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal" Height="400">
-                        <Label Content="时间控件"/>
-                        <DatePicker DisplayDateStart="2021-3-18" Style="{StaticResource DatePickerDefault}"/>
-                    </WrapPanel>
-                </StackPanel>
-            </ScrollViewer>
-        </TabItem>
-    </TabControl>
+    <Grid>
+        <page:ButtonPage Visibility="{Binding State,Converter={StaticResource StateConvert},ConverterParameter=Button}"/>
+        <page:PackIconPage Visibility="{Binding State,Converter={StaticResource StateConvert},ConverterParameter=PackIcon}"/>
+        <page:FormPage Visibility="{Binding State,Converter={StaticResource StateConvert},ConverterParameter=Form}"/>
+    </Grid>
 </smart:SmartWindow>

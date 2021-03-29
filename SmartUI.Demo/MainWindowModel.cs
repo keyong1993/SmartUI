@@ -37,6 +37,30 @@ namespace SmartUI.Demo
             }
         }
 
+        private ICommand _stateCommand;
+
+        public ICommand StateCommand
+        {
+            get => _stateCommand;
+            set
+            {
+                _stateCommand = value;
+                RaisePropertyChanged(nameof(StateCommand));
+            }
+
+        }
+
+        private string _state="Button";
+        public string State
+        {
+            get => _state;
+            set
+            {
+                _state = value;
+                RaisePropertyChanged(nameof(State));
+            }
+        }
+
         private int _iconsPageIndex = 1;
         private int _pageSize = 100;
         private PackIconKind[] _iconsArray;
@@ -46,11 +70,19 @@ namespace SmartUI.Demo
             _iconsArray = (PackIconKind[])Enum.GetValues(typeof(PackIconKind));
             Icons = new ObservableCollection<PackIconKind>(_iconsArray.Take(_iconsPageIndex * _pageSize));
             LoadMoreIconCommand = new RelayCommand(new Action<object>(LoadMoreIcon));
+            StateCommand = new RelayCommand(new Action<object>(StateChanged));
         }
 
         private void LoadMoreIcon(object obj)
         {
             _iconsArray.Skip((_iconsPageIndex - 1) * _pageSize).Take(_pageSize).ToList().ForEach(p => { Icons.Add(p); });
+        }
+
+        private void StateChanged(object obj)
+        {
+            if (!(obj is string state))
+                return;
+            State = state;
         }
 
 

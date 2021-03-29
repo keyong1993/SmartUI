@@ -20,5 +20,6 @@
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/CalendarStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/DatePickerStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/MenuStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/GroupBoxStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

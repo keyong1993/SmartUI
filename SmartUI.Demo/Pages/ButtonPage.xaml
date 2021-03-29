@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="SmartUI.Demo.Pages.ButtonPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartUI.Demo.Pages"
+             xmlns:assist="clr-namespace:SmartUI.Assist;assembly=SmartUI"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="8">
+    <StackPanel Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <TextBlock Text="Button" Style="{StaticResource MainHeaderStyle}"/>
+        <GroupBox Header="默认样式">
+            <UniformGrid Columns="6">
+                <Button Content="默认按钮" Grid.Column="0" x:Name="col1"/>
+                <Button Content="主要按钮" Grid.Column="1" x:Name="col2" Style="{StaticResource PrimaryButtonStyle1}"/>
+                <Button Content="成功按钮" Grid.Column="2" x:Name="col3" assist:ButtonAssist.Icon="Done" Style="{StaticResource SuccessButtonStyle1}"/>
+                <Button Content="信息按钮" Grid.Column="3" x:Name="col4" Style="{StaticResource InfoButtonStyle1}"/>
+                <Button Content="警告按钮" Grid.Column="4" x:Name="col5" Style="{StaticResource WarningButtonStyle1}"/>
+                <Button Content="危险按钮" Grid.Column="5" x:Name="col6" Style="{StaticResource ErrorButtonStyle1}"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="默认样式2">
+            <UniformGrid Columns="6">
+                <Button Content="默认按钮" Style="{StaticResource DefaultButtonStyle2}"/>
+                <Button Content="主要按钮" Style="{StaticResource PrimaryButtonStyle2}"/>
+                <Button Content="成功按钮" Style="{StaticResource SuccessButtonStyle2}"/>
+                <Button Content="信息按钮" Style="{StaticResource InfoButtonStyle2}"/>
+                <Button Content="警告按钮" Style="{StaticResource WarningButtonStyle2}"/>
+                <Button Content="危险按钮" Style="{StaticResource ErrorButtonStyle2}"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="默认样式3">
+            <UniformGrid Columns="6">
+                <Button Content="默认按钮" Style="{StaticResource FilletDefaultButtonStyle}"/>
+                <Button Content="主要按钮" Style="{StaticResource FilletPrimaryButtonStyle}"/>
+                <Button Content="成功按钮" Style="{StaticResource FilletSuccessButtonStyle}"/>
+                <Button Content="信息按钮" Style="{StaticResource FilletInfoButtonStyle}"/>
+                <Button Content="警告按钮" Style="{StaticResource FilletWarningButtonStyle}"/>
+                <Button Content="危险按钮" Style="{StaticResource FilletErrorButtonStyle}"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="圆形按钮样式">
+            <UniformGrid Columns="6">
+                <Button assist:ButtonAssist.Icon="Search" Style="{StaticResource CircleDefaultButtonStyle}"/>
+                <Button assist:ButtonAssist.Icon="Edit" Style="{StaticResource CirclePrimaryButtonStyle}"/>
+                <Button assist:ButtonAssist.Icon="Done" Style="{StaticResource CircleSuccessButtonStyle}"/>
+                <Button assist:ButtonAssist.Icon="Email" Style="{StaticResource CircleInfoButtonStyle}"/>
+                <Button assist:ButtonAssist.Icon="Star" Style="{StaticResource CircleWarningButtonStyle}"/>
+                <Button assist:ButtonAssist.Icon="Delete" Style="{StaticResource CircleErrorButtonStyle}"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="禁用按钮样式">
+            <UniformGrid Columns="6">
+                <Button Content="默认按钮" IsEnabled="False"/>
+                <Button Content="主要按钮" IsEnabled="False" Style="{StaticResource PrimaryButtonStyle1}"/>
+                <Button Content="成功按钮" IsEnabled="False" Style="{StaticResource SuccessButtonStyle1}"/>
+                <Button Content="信息按钮" IsEnabled="False" Style="{StaticResource InfoButtonStyle1}"/>
+                <Button Content="警告按钮" IsEnabled="False" Style="{StaticResource WarningButtonStyle1}"/>
+                <Button Content="危险按钮" IsEnabled="False" Style="{StaticResource ErrorButtonStyle1}"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="文字连接样式">
+            <UniformGrid Columns="6">
+                <Button Content="默认按钮" Style="{StaticResource TextButtonStyle}"/>
+                <Button Content="禁用按钮" IsEnabled="False" Style="{StaticResource TextButtonStyle}"/>
+            </UniformGrid>
+        </GroupBox>
+    </StackPanel>
+    </ScrollViewer>
+</UserControl>
