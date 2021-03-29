@@ -60,15 +60,23 @@
                 <Button Content="禁用按钮" IsEnabled="False" Style="{StaticResource TextButtonStyle}"/>
             </UniformGrid>
    ````
-  3. SmartWindow自定义控件，全新的窗体界面
-        使用方式：将Window继承自SmartWindow即可        
-  5. TabControl控件样式
-  6. Form表单
-        1.Radio、
-        2.CheckBox、
-        3.Input、
-        4.Select选择器、
-        5.Switch开关
+  3. SmartWindow自定义控件，全新的窗体界面，自定义Title控件
+        使用方式：将Window继承自SmartWindow即可
+        ![image](https://user-images.githubusercontent.com/29591512/112811150-59c93580-90ae-11eb-98da-1337aaa785f6.png)
+  4. Menu样式
+  5. ![image](https://user-images.githubusercontent.com/29591512/112811240-6fd6f600-90ae-11eb-9b40-578d44b007cd.png)
+  6. TabControl控件样式
+  7. Form表单
+        1. Radio、
+        2. CheckBox、
+        3. Input、
+        4. Select选择器、级联选择器
+        5. Switch开关、
+        6. 日期选择器
         ![image](https://user-images.githubusercontent.com/29591512/111290646-5468f580-8681-11eb-9d58-4ddcd697f583.png)
+        ![image](https://user-images.githubusercontent.com/29591512/112810988-2e464b00-90ae-11eb-9aee-45d39844c5d0.png)
+        ![image](https://user-images.githubusercontent.com/29591512/112811066-428a4800-90ae-11eb-84c8-12e2d4395a64.png)
+
+
 
         
