@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="DefaultGroupBoxStyle" TargetType="GroupBox">
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Padding" Value="8"/>
+    </Style>
+    <Style TargetType="GroupBox" BasedOn="{StaticResource DefaultGroupBoxStyle}"/>
+</ResourceDictionary>

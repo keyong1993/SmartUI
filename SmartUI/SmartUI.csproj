@@ -77,6 +77,7 @@
     <Compile Include="Assist\ButtonAssist.cs" />
     <Compile Include="Assist\DataGridAssist.cs" />
     <Compile Include="Assist\DatePickerAssist.cs" />
+    <Compile Include="Assist\MenuItemAssist.cs" />
     <Compile Include="Controls\CascaderItem.cs" />
     <Compile Include="Controls\Cascader.cs" />
     <Compile Include="Controls\ChildWindow.cs" />
