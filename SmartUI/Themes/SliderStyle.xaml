@@ -1,0 +1,100 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="RepeatButtonTransparent" TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border x:Name="border" Background="{DynamicResource BrandColor}" CornerRadius="3 0 0 3" Height="6" Width="{TemplateBinding Width}" Margin="0 0 -3 0"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="#C0C4CC"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="RepeatButtonTransparent1" TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="SliderHorizontal" TargetType="{x:Type Slider}">
+        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TickBar x:Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,0,0,2" Placement="Top" Grid.Row="0" Visibility="Collapsed"/>
+                <TickBar x:Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0" Placement="Bottom" Grid.Row="2" Visibility="Collapsed"/>
+                <Border x:Name="TrackBackground" CornerRadius="3" Background="{DynamicResource BgGrayColor}" Height="6.0" Margin="5,0" Grid.Row="1" VerticalAlignment="center">
+                    <Canvas Margin="-6,-1">
+                        <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Height="4" Visibility="Hidden"/>
+                    </Canvas>
+                </Border>
+                <Track x:Name="PART_Track" Grid.Row="1">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource RepeatButtonTransparent}"/>
+                    </Track.DecreaseRepeatButton>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource RepeatButtonTransparent1}"/>
+                    </Track.IncreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb x:Name="Thumb" ToolTip="{TemplateBinding Value}" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{DynamicResource ThumbControlTemplate1}" VerticalAlignment="Center" Width="18"/>
+                    </Track.Thumb>
+                </Track>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="TickPlacement" Value="Both">
+                <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
+                <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="SliderStyle1" TargetType="{x:Type Slider}">
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="Template" Value="{StaticResource SliderHorizontal}"/>
+    </Style>
+    <ControlTemplate x:Key="ThumbControlTemplate1" TargetType="{x:Type Thumb}">
+        <Grid HorizontalAlignment="Center" UseLayoutRounding="True" VerticalAlignment="Center" Cursor="Hand">
+            <Border x:Name="border" Background="White" BorderBrush="{DynamicResource BrandColor}" BorderThickness="2" CornerRadius="9" Width="18" Height="18"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform CenterX="9" CenterY="9" ScaleX="1.2" ScaleY="1.2"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource TextEnabledColor}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style TargetType="Slider" BasedOn="{StaticResource SliderStyle1}"/>
+</ResourceDictionary>

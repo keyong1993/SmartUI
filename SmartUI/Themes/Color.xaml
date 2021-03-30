@@ -6,7 +6,6 @@
     <SolidColorBrush x:Key="WarningColor" Color="#E6A23C"/>
     <SolidColorBrush x:Key="ErrorColor" Color="#F56C6C"/>
     <SolidColorBrush x:Key="InfoColor" Color="#909399"/>
-
     <SolidColorBrush x:Key="PrimaryTextColor" Color="#303133"/>
     <SolidColorBrush x:Key="RegularTextColor" Color="#606266"/>
     <SolidColorBrush x:Key="SecondaryTextColor" Color="#909399"/>
@@ -22,5 +21,6 @@
     <SolidColorBrush x:Key="BgWhiteColor" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="BgTransparentColor" Color="Transparent"/>
     <SolidColorBrush x:Key="BgHoverColor" Color="#FAFAFA"/>
+    <SolidColorBrush x:Key="BgGrayColor" Color="#FFE7EAEA"/>
     <SolidColorBrush x:Key="TextEnabledColor" Color="#C0C4CC"/>
 </ResourceDictionary>

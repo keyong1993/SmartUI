@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SliderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowModel.cs" />
@@ -102,6 +106,9 @@
     </Compile>
     <Compile Include="Pages\PackIconPage.xaml.cs">
       <DependentUpon>PackIconPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SliderPage.xaml.cs">
+      <DependentUpon>SliderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
