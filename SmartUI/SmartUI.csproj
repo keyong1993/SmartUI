@@ -90,6 +90,7 @@
     <Compile Include="Controls\SmartWindow.cs" />
     <Compile Include="Controls\WaterComboBox.cs" />
     <Compile Include="Converter\BooToVisiable.cs" />
+    <Compile Include="Converter\DateTimeConverter.cs" />
     <Compile Include="Converter\DialogButtonConverter.cs" />
     <Compile Include="Converter\ElementCountVisiable.cs" />
     <Compile Include="Converter\OutCarStatusConverter.cs" />

@@ -66,11 +66,17 @@
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Converter\StateConvert.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\DataGridItemModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\ButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DataGridPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -87,6 +93,9 @@
     <Compile Include="MainWindowModel.cs" />
     <Compile Include="Pages\ButtonPage.xaml.cs">
       <DependentUpon>ButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DataGridPage.xaml.cs">
+      <DependentUpon>DataGridPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\FormPage.xaml.cs">
       <DependentUpon>FormPage.xaml</DependentUpon>

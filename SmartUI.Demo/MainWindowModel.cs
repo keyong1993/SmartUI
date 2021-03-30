@@ -1,6 +1,7 @@
 ﻿using SmartUI.Base;
 using SmartUI.Common.Enum;
 using SmartUI.Demo.Common;
+using SmartUI.Demo.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 
 namespace SmartUI.Demo
 {
-    public class MainWindowModel : INotifyPropertyChanged
+    public class MainWindowModel : BaseModel
     {
         private ObservableCollection<PackIconKind> icons;
 
@@ -47,10 +48,9 @@ namespace SmartUI.Demo
                 _stateCommand = value;
                 RaisePropertyChanged(nameof(StateCommand));
             }
-
         }
 
-        private string _state="Button";
+        private string _state = "Button";
         public string State
         {
             get => _state;
@@ -58,6 +58,17 @@ namespace SmartUI.Demo
             {
                 _state = value;
                 RaisePropertyChanged(nameof(State));
+            }
+        }
+
+        private ObservableCollection<DataGridItemModel> _dataGridSource;
+        public ObservableCollection<DataGridItemModel> DataGridSource
+        {
+            get => _dataGridSource;
+            set
+            {
+                _dataGridSource = value;
+                RaisePropertyChanged(nameof(DataGridSource));
             }
         }
 
@@ -71,6 +82,18 @@ namespace SmartUI.Demo
             Icons = new ObservableCollection<PackIconKind>(_iconsArray.Take(_iconsPageIndex * _pageSize));
             LoadMoreIconCommand = new RelayCommand(new Action<object>(LoadMoreIcon));
             StateCommand = new RelayCommand(new Action<object>(StateChanged));
+            DataGridSource = new ObservableCollection<DataGridItemModel>();
+            for (int i = 0; i < 10; i++)
+            {
+                DataGridItemModel model = new DataGridItemModel()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "王小虎",
+                    Desc = "王小虎是一个三好青年",
+                    Date = DateTime.Now
+                };
+                DataGridSource.Add(model);
+            }
         }
 
         private void LoadMoreIcon(object obj)
@@ -84,19 +107,6 @@ namespace SmartUI.Demo
                 return;
             State = state;
         }
-
-
-
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            var method = PropertyChanged;
-            if (method != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-
 
         public ObservableCollection<CascaderItem> CascaderItemSource { get; set; } = new ObservableCollection<CascaderItem>()
         {

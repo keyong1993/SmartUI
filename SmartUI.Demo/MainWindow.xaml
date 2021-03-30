@@ -36,7 +36,9 @@
                     <MenuItem Header="Switch" Command="{Binding StateCommand}" CommandParameter="Form"/>
                     <MenuItem Header="DatePicker" Command="{Binding StateCommand}" CommandParameter="Form"/>
                 </MenuItem>
-                <MenuItem Header="Data"/>
+                <MenuItem Header="Data">
+                    <MenuItem Header="DataGrid" Command="{Binding StateCommand}" CommandParameter="DataGrid"/>
+                </MenuItem>
                 <MenuItem Header="导航"/>
                 <MenuItem Header="消息"/>
                 <MenuItem Header="其他"/>
@@ -47,5 +49,6 @@
         <page:ButtonPage Visibility="{Binding State,Converter={StaticResource StateConvert},ConverterParameter=Button}"/>
         <page:PackIconPage Visibility="{Binding State,Converter={StaticResource StateConvert},ConverterParameter=PackIcon}"/>
         <page:FormPage Visibility="{Binding State,Converter={StaticResource StateConvert},ConverterParameter=Form}"/>
+        <page:DataGridPage Visibility="{Binding State,Converter={StaticResource StateConvert},ConverterParameter=DataGrid}"/>
     </Grid>
 </smart:SmartWindow>
