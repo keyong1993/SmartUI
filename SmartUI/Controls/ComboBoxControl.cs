@@ -23,7 +23,5 @@ namespace SmartUI.Controls
         {
             IsDropDownOpen = !IsDropDownOpen;
         }
-
-
     }
 }

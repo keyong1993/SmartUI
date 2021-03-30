@@ -11,17 +11,14 @@ namespace SmartUI.Controls
 {
     public class WaterComboBox : ComboBox
     {
-
-
         public AlignmentX AlignmentX
         {
             get { return (AlignmentX)GetValue(AlignmentXProperty); }
             set { SetValue(AlignmentXProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for AlignmentX.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty AlignmentXProperty =
-            DependencyProperty.Register("AlignmentX", typeof(AlignmentX), typeof(WaterComboBox), new PropertyMetadata(AlignmentX.Left));
+            DependencyProperty.Register(nameof(AlignmentX), typeof(AlignmentX), typeof(WaterComboBox), new PropertyMetadata(AlignmentX.Left));
 
 
         public string WaterText
@@ -30,9 +27,8 @@ namespace SmartUI.Controls
             set { SetValue(WaterTextProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for WaterText.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty WaterTextProperty =
-            DependencyProperty.Register("WaterText", typeof(string), typeof(WaterComboBox));
+            DependencyProperty.Register(nameof(WaterText), typeof(string), typeof(WaterComboBox));
 
 
     }

@@ -51,7 +51,7 @@ namespace SmartUI.Controls
             }
         }
 
-        private void TitleMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void TitleMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && e.ClickCount == 1)
             {

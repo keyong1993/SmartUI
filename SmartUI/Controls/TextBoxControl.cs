@@ -19,8 +19,6 @@ namespace SmartUI.Controls
         public static readonly DependencyProperty WaterProperty =
             DependencyProperty.Register(nameof(Water), typeof(string), typeof(TextBoxControl), new PropertyMetadata(string.Empty));
 
-
-
         public string Icon
         {
             get { return (string)GetValue(IconProperty); }
@@ -29,8 +27,6 @@ namespace SmartUI.Controls
 
         public static readonly DependencyProperty IconProperty =
             DependencyProperty.Register(nameof(Icon), typeof(string), typeof(TextBoxControl), new PropertyMetadata(null));
-
-
 
         public bool IsEmpty
         {

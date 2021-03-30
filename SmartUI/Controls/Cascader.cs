@@ -1,10 +1,6 @@
 ﻿using SmartUI.Base;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -35,8 +31,6 @@ namespace SmartUI.Controls
             if (!string.IsNullOrEmpty(cascader.Text))
                 cascader.ResetByText();
         }
-
-
 
         public new string Text
         {
@@ -99,7 +93,13 @@ namespace SmartUI.Controls
             _border = GetTemplateChild("border") as Border;
             _border.MouseLeftButtonDown += Border_MouseLeftButtonDown;
             if (!string.IsNullOrEmpty(Text))
+            {
                 ResetByText();
+                if (_itemsPanle.Children.Count > 0)
+                    (_itemsPanle.Children[_itemsPanle.Children.Count - 1] as ListBox).BorderThickness = new Thickness(0);
+                if (_itemsPanle.Children.Count > 1)
+                    (_itemsPanle.Children[_itemsPanle.Children.Count - 2] as ListBox).BorderThickness = new Thickness(0, 0, 1, 0);
+            }
         }
 
         private void RaiseItems(ObservableCollection<CascaderItem> source)
@@ -154,8 +154,6 @@ namespace SmartUI.Controls
                     (_itemsPanle.Children[_itemsPanle.Children.Count - 2] as ListBox).BorderThickness = new Thickness(0, 0, 1, 0);
             }
         }
-
-
 
         private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
