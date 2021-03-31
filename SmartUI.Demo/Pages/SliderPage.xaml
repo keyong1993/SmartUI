@@ -4,8 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartUI.Demo.Pages"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:converter="clr-namespace:SmartUI.Converter;assembly=SmartUI"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <converter:NumberConverter x:Key="NumberConverter"/>
+    </UserControl.Resources>
     <Grid Margin="8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -14,11 +17,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <TextBlock Text="默认样式" Style="{DynamicResource FieldTextStyle}"/>
-        <Slider Grid.Column="1" Width="600" Value="30" TickPlacement="TopLeft" TickFrequency="10" Delay="5" Maximum="100" Minimum="0" />
+        <Slider Grid.Column="1" Width="600" Value="30" IsSnapToTickEnabled="True" TickFrequency="0.1" Delay="5" Maximum="100" Minimum="0" />
+        <TextBlock Text="格式化数据" Grid.Row="1" Style="{DynamicResource FieldTextStyle}"/>
+        <Slider Grid.Column="1" Width="600" Grid.Row="1" IsSnapToTickEnabled="True" Value="30" TickPlacement="TopLeft" TickFrequency="1" Delay="5" Maximum="100" Minimum="0"/>
 
-        <TextBlock Text="禁用样式" Style="{DynamicResource FieldTextStyle}" Grid.Row="1"/>
-        <Slider Grid.Column="1" Grid.Row="1" IsEnabled="False" Width="600" Value="50" TickPlacement="TopLeft" TickFrequency="10" Delay="5" Maximum="100" Minimum="0" />
+        <TextBlock Text="禁用样式" Style="{DynamicResource FieldTextStyle}" Grid.Row="2"/>
+        <Slider Grid.Column="1" Grid.Row="2" IsEnabled="False" Width="600" Value="50" TickPlacement="TopLeft" TickFrequency="10" Delay="5" Maximum="100" Minimum="0" />
     </Grid>
 </UserControl>

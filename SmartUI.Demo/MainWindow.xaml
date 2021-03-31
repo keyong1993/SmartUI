@@ -39,12 +39,10 @@
                 <MenuItem Header="Data">
                     <MenuItem Header="DataGrid" Command="{Binding StateCommand}" CommandParameter="DataGrid"/>
                 </MenuItem>
-                <MenuItem Header="导航"/>
-                <MenuItem Header="Slider">
+                <MenuItem Header="消息"/>
+                <MenuItem Header="其他">
                     <MenuItem Header="Slider" Command="{Binding StateCommand}" CommandParameter="Slider"/>
                 </MenuItem>
-                <MenuItem Header="消息"/>
-                <MenuItem Header="其他"/>
             </Menu>
         </StackPanel>
     </smart:SmartWindow.TitleControl>

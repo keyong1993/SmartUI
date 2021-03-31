@@ -78,6 +78,7 @@
     <Compile Include="Assist\DataGridAssist.cs" />
     <Compile Include="Assist\DatePickerAssist.cs" />
     <Compile Include="Assist\MenuItemAssist.cs" />
+    <Compile Include="Assist\PopupAssist.cs" />
     <Compile Include="Controls\CascaderItem.cs" />
     <Compile Include="Controls\Cascader.cs" />
     <Compile Include="Controls\ChildWindow.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Converter\DateTimeConverter.cs" />
     <Compile Include="Converter\DialogButtonConverter.cs" />
     <Compile Include="Converter\ElementCountVisiable.cs" />
+    <Compile Include="Converter\NumberConverter.cs" />
     <Compile Include="Converter\OutCarStatusConverter.cs" />
     <Compile Include="Converter\PassWordConverter.cs" />
     <Compile Include="Converter\TimestampConverter.cs" />
@@ -116,6 +118,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\CascaderStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ToopTipStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
