@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,8 +32,28 @@ namespace SmartUI.Controls
 
         public void Show(NoticeType icon, string message, int millisecond)
         {
-            Items.Insert(0, new NoticeItemModel(icon, message, millisecond));
+            WaitShow(icon, message, millisecond);
+        }
+
+        public int WaitShow(NoticeType icon, string message, int maxWaitTime = int.MaxValue)
+        {
+            NoticeItemModel model = new NoticeItemModel(icon, message, maxWaitTime);
+            Items.Insert(0, model);
             itemsControl.ItemsSource = Items;
+            return model.Key;
+        }
+
+        public bool Close(int key)
+        {
+            NoticeItemModel current = Items.FirstOrDefault(p => p.Key == key);
+            if (current is null)
+                return false;
+            Dispatcher.Invoke((Action)delegate ()
+            {
+                Items.Remove(current);
+            });
+
+            return true;
         }
 
         private void TimerElapsed(object sender, ElapsedEventArgs args)
@@ -54,6 +75,10 @@ namespace SmartUI.Controls
 
     public class NoticeItemModel
     {
+        private static int index = 0;
+
+        public int Key { get; set; }
+
         public string Icon { get; private set; }
 
         public string Message { get; private set; }
@@ -80,6 +105,7 @@ namespace SmartUI.Controls
             Message = message.Length > 15 ? message.Substring(0, 15) + "..." : message;
             Millisecond = millisecond;
             CreateTime = DateTime.Now;
+            Key = index++;
         }
     }
 

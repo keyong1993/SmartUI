@@ -23,5 +23,6 @@
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/MenuStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/GroupBoxStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/SliderStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/SmartUI;component/Themes/Progress.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

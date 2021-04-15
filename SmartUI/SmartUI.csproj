@@ -83,7 +83,7 @@
     <Compile Include="Controls\Cascader.cs" />
     <Compile Include="Controls\ChildWindow.cs" />
     <Compile Include="Controls\ComboBoxControl.cs" />
-    <Compile Include="Controls\Progress.cs" />
+    <Compile Include="Controls\CircleProgress.cs" />
     <Compile Include="Controls\Switch.cs" />
     <Compile Include="Controls\TextBoxControl.cs" />
     <Compile Include="Controls\NoticeControl.cs" />
@@ -118,6 +118,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\CascaderStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Progress.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
