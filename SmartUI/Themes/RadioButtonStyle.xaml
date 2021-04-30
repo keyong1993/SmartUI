@@ -135,7 +135,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Grid x:Name="grid" VerticalAlignment="Center">
+                    <Grid x:Name="root" VerticalAlignment="Center">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="8"/>

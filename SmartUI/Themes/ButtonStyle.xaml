@@ -13,13 +13,14 @@
         <Setter Property="Background" Value="{DynamicResource BgWhiteColor}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBaseColor}"/>
         <Setter Property="assist:ButtonAssist.Icon" Value="None"/>
+        <Setter Property="assist:ButtonAssist.ClickAnimation" Value="True"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
+                    <Grid x:Name="root">
                         <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="4"/>
-                        <DockPanel x:Name="contont" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+                        <DockPanel x:Name="contont" IsHitTestVisible="False" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
                             <smart:PackIcon Kind="{TemplateBinding assist:ButtonAssist.Icon}" x:Name="icon" Foreground="{TemplateBinding Foreground}" Width="18" Height="18" DockPanel.Dock="Left"/>
                             <Label IsHitTestVisible="True" Cursor="{TemplateBinding Cursor}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
                         </DockPanel>
@@ -56,12 +57,13 @@
         <Setter Property="Background" Value="{DynamicResource BrandColor}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBaseColor}"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="assist:ButtonAssist.ClickAnimation" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
+                    <Grid x:Name="root" Cursor="{TemplateBinding Cursor}">
                         <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="4"/>
-                        <DockPanel x:Name="contont" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+                        <DockPanel x:Name="contont" IsHitTestVisible="False" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
                             <smart:PackIcon x:Name="icon" Kind="{TemplateBinding assist:ButtonAssist.Icon}" Width="18" Height="18" DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             <Label IsHitTestVisible="True" Cursor="{TemplateBinding Cursor}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center" Style="{x:Null}" HorizontalAlignment="Center"/>
                         </DockPanel>
@@ -96,11 +98,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Border Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}"  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="4">
-                            <Grid x:Name="grid" Background="{TemplateBinding Background}" Opacity="0.2" SnapsToDevicePixels="True" ClipToBounds="True"/>
-                        </Border>
-                        <DockPanel x:Name="contont" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid x:Name="root">
+                        <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Background="Transparent" Margin="{TemplateBinding Margin}"  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="4"/>
+                        <DockPanel x:Name="contont"  IsHitTestVisible="False" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <smart:PackIcon x:Name="icon" Kind="{TemplateBinding assist:ButtonAssist.Icon}" Width="24" Height="24" DockPanel.Dock="Left"/>
                             <Label IsHitTestVisible="True" Cursor="{TemplateBinding Cursor}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
                         </DockPanel>
@@ -115,12 +115,10 @@
                                 <Condition Property="IsMouseOver" Value="True"/>
                                 <Condition Property="IsEnabled" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Opacity" Value="1" TargetName="grid"/>
                             <Setter Property="BorderBrush" Value="{DynamicResource BrandColor}"/>
                             <Setter Property="Foreground" Value="{DynamicResource BrandColor}"/>
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.6" TargetName="grid"/>
                             <Setter Property="Opacity" Value="0.6" TargetName="contont"/>
                             <Setter Property="Cursor" Value="No"/>
                         </Trigger>
@@ -136,11 +134,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}"  BorderBrush="{TemplateBinding Background}" BorderThickness="1" CornerRadius="4">
-                            <Grid x:Name="grid" SnapsToDevicePixels="True" Background="{TemplateBinding Background}" Opacity="0.2"/>
+                    <Grid x:Name="root" Cursor="{TemplateBinding Cursor}">
+                        <Border x:Name="border1" Margin="{TemplateBinding Margin}" Background="White" BorderBrush="{TemplateBinding Background}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+                            <Grid>
+                                <Border x:Name="border" Panel.ZIndex="100"/>
+                                <Border x:Name="bgBorder" Background="{TemplateBinding Background}" Opacity="0.1" CornerRadius="4"/>
+                            </Grid>
                         </Border>
-                        <DockPanel x:Name="contont" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <DockPanel x:Name="contont" IsHitTestVisible="False" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <smart:PackIcon x:Name="icon" Kind="{TemplateBinding assist:ButtonAssist.Icon}" Width="24" Height="24" DockPanel.Dock="Left"/>
                             <Label IsHitTestVisible="True" Cursor="{TemplateBinding Cursor}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
                         </DockPanel>
@@ -155,11 +156,11 @@
                                 <Condition Property="IsMouseOver" Value="True"/>
                                 <Condition Property="IsEnabled" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Opacity" Value="1" TargetName="grid"/>
                             <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Opacity" TargetName="bgBorder" Value="1"/>
+                            <Setter Property="BorderThickness" TargetName="border1" Value="0"/>
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.6" TargetName="grid"/>
                             <Setter Property="Opacity" Value="0.6" TargetName="contont"/>
                             <Setter Property="Cursor" Value="No"/>
                         </Trigger>
@@ -198,7 +199,7 @@
         <Setter Property="Background" Value="{DynamicResource ErrorColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource ErrorColor}"/>
     </Style>
-    
+
     <Style x:Key="SuccessButtonStyle3" TargetType="{x:Type Button}" BasedOn="{StaticResource PrimaryButtonStyle1}">
         <Setter Property="Background" Value="{DynamicResource SuccessColor}"/>
     </Style>
@@ -212,10 +213,11 @@
         <Setter Property="Background" Value="{DynamicResource ErrorColor}"/>
     </Style>
     <Style x:Key="FilletDefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="assist:ButtonAssist.ClickAnimation" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
+                    <Grid x:Name="root">
                         <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="{c:Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path='ActualHeight/2.5'}" Padding="{TemplateBinding Padding}"/>
                         <DockPanel x:Name="contont" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <smart:PackIcon Kind="{TemplateBinding assist:ButtonAssist.Icon}" x:Name="icon" Foreground="{TemplateBinding Foreground}" Width="24" Height="24" DockPanel.Dock="Left"/>
@@ -252,11 +254,12 @@
         <Setter Property="Background" Value="{DynamicResource BrandColor}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBaseColor}"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="assist:ButtonAssist.ClickAnimation" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"  CornerRadius="{c:Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path='ActualHeight/2.5'}" Padding="{TemplateBinding Padding}"/>
+                    <Grid x:Name="root" ClipToBounds="True">
+                        <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"  CornerRadius="{c:Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path='ActualHeight/2.5'}"/>
                         <DockPanel x:Name="contont" LastChildFill="True" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <smart:PackIcon x:Name="icon" Kind="{TemplateBinding assist:ButtonAssist.Icon}" Width="24" Height="24" DockPanel.Dock="Left"/>
                             <Label IsHitTestVisible="True" Cursor="{TemplateBinding Cursor}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
@@ -302,10 +305,11 @@
         <Setter Property="Width" Value="50"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="assist:ButtonAssist.ClickAnimation" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
+                    <Grid x:Name="root">
                         <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"  CornerRadius="{c:Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path='ActualHeight/2.5'}" Padding="{TemplateBinding Padding}"/>
                         <smart:PackIcon x:Name="icon" Foreground="{TemplateBinding Foreground}" Kind="{TemplateBinding assist:ButtonAssist.Icon}" Width="18" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Grid>
@@ -339,10 +343,11 @@
         <Setter Property="Background" Value="{DynamicResource BrandColor}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBaseColor}"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="assist:ButtonAssist.ClickAnimation" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
+                    <Grid x:Name="root">
                         <Border x:Name="border" Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"  CornerRadius="{c:Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path='ActualHeight/2.5'}" Padding="{TemplateBinding Padding}"/>
                         <smart:PackIcon x:Name="icon" Foreground="{TemplateBinding Foreground}" Kind="{TemplateBinding assist:ButtonAssist.Icon}" Width="18" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Grid>
