@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Timers;
 using System.Windows;
@@ -32,15 +33,21 @@ namespace SmartUI.Controls
 
         public void Show(NoticeType icon, string message, int millisecond)
         {
-            WaitShow(icon, message, millisecond);
+            WaitShow(icon, message, -1, millisecond);
         }
 
-        public int WaitShow(NoticeType icon, string message, int maxWaitTime = int.MaxValue)
+        public int WaitShow(NoticeType icon, string message, double progress = -1, int maxWaitTime = int.MaxValue)
         {
-            NoticeItemModel model = new NoticeItemModel(icon, message, maxWaitTime);
+            NoticeItemModel model = new NoticeItemModel(icon, message, maxWaitTime, progress);
             Items.Insert(0, model);
             itemsControl.ItemsSource = Items;
             return model.Key;
+        }
+
+        public void ChangeProgress(int key, double progress)
+        {
+            NoticeItemModel model = Items.FirstOrDefault(p => p.Key.Equals(key));
+            model.Progress = progress;
         }
 
         public bool Close(int key)
@@ -73,9 +80,11 @@ namespace SmartUI.Controls
         }
     }
 
-    public class NoticeItemModel
+    public class NoticeItemModel : INotifyPropertyChanged
     {
         private static int index = 0;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public int Key { get; set; }
 
@@ -83,29 +92,39 @@ namespace SmartUI.Controls
 
         public string Message { get; private set; }
 
+        private double progress;
+        public double Progress
+        {
+            get => progress;
+            set { progress = value; RaisePropertyChanged(nameof(Progress)); }
+        }
+
         public int Millisecond { get; private set; }
 
         public DateTime CreateTime { get; set; }
 
-        public NoticeItemModel(NoticeType icon, string message, int millisecond)
+        public NoticeItemModel(NoticeType icon, string message, int millisecond, double progress = -1)
         {
-            switch (icon)
+            Icon = icon switch
             {
-                case NoticeType.Ok:
-                    Icon = "/SmartUI;component/Themes/Images/u301.png";
-                    break;
-                case NoticeType.Error:
-                    Icon = "/SmartUI;component/Themes/Images/u304.png";
-                    break;
-                case NoticeType.Info:
-                default:
-                    Icon = "/SmartUI;component/Themes/Images/u196.png";
-                    break;
-            }
+                NoticeType.Ok => "/SmartUI;component/Themes/Images/u301.png",
+                NoticeType.Error => "/SmartUI;component/Themes/Images/u304.png",
+                _ => "/SmartUI;component/Themes/Images/u196.png",
+            };
             Message = message.Length > 15 ? message.Substring(0, 15) + "..." : message;
             Millisecond = millisecond;
+            Progress = progress;
             CreateTime = DateTime.Now;
             Key = index++;
+        }
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            var method = PropertyChanged;
+            if (method != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 

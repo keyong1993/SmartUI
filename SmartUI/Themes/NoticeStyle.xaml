@@ -19,13 +19,20 @@
                         </Border.Effect>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="{Binding Icon}" Stretch="Fill" Width="25" Height="25" Margin="5 3"/>
-                            <TextBlock Text="{Binding Message}" FontSize="16" Margin="5 3" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Message}" FontSize="16" Margin="5 3 0 3" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="progress" FontSize="16" Margin="0 3 5 3" Width="60" >
+                                <Run Text="{Binding Progress}"/>
+                                <Run Text="%"/>
+                            </TextBlock>
                         </StackPanel>
                     </Border>
                     <DataTemplate.Triggers>
                         <!--<DataTrigger Binding="{Binding Confirm}" Value="True">
                             <Setter TargetName="sure" Property="Visibility" Value="Visible"/>
                         </DataTrigger>-->
+                        <DataTrigger Binding="{Binding Progress}" Value="-1">
+                            <Setter TargetName="progress" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
                         <EventTrigger RoutedEvent="Loaded">
                             <BeginStoryboard>
                                 <Storyboard Storyboard.TargetName="border">
