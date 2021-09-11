@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:assist="clr-namespace:SmartUI.Assist"
+                    xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <sys:Double x:Key="DataGridRow.Height">40</sys:Double>
@@ -75,7 +76,7 @@
                             </ItemsControl>
                         </Border>
                         <ScrollViewer VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}" HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}">
-                            <ItemsPresenter Width="{TemplateBinding Width}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <ItemsPresenter Margin="0 0 -20 0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </ScrollViewer>
                     </DockPanel>
                 </ControlTemplate>

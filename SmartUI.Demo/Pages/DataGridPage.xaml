@@ -10,7 +10,7 @@
         <converter:DateTimeConverter x:Key="DateTimeConverter"/>
     </UserControl.Resources>
     <DataGrid ItemsSource="{Binding DataGridSource}" AutoGenerateColumns="False" Margin="8"
-              HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+              VerticalScrollBarVisibility="Auto">
         <DataGrid.Columns>
             <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
             <DataGridTextColumn Binding="{Binding Name}" Header="名称"/>
